@@ -94,12 +94,12 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="https://ggits.org/placement/">About Placements</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Notes
+                           NOTES 
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Data Structures</a></li>
@@ -107,11 +107,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Other</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="./dataStructures.html">ALL</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Seniors Contact</a>
+                        <a class="nav-link" href="./contact.html">Contact Me</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -152,6 +152,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script> const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
+            
+            searchButton.addEventListener('click', function () {
+                const query = searchInput.value.toLowerCase();
+                const paragraphs = document.querySelectorAll('.container p');
+                
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        paragraph.classList.add('search-highlight');
+                    } else {
+                        paragraph.classList.remove('search-highlight');
+                    }
+                });
+            });</script>
+        
 </body>
 
 </html>
