@@ -6,10 +6,26 @@
 <title>NOTES</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
+    animation: gradientAnimation 3s linear infinite alternate;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+                        linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+    }
+    100% {
+      background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5),
+                        linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+    }
   }
 
   .container {
@@ -17,15 +33,22 @@
     margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  h1 {
-    font-size: 28px;
+  h2 {
+    font-size: 32px;
     margin-bottom: 20px;
     color: #333;
     text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 24px;
   }
 
   .link-list {
@@ -45,7 +68,7 @@
     text-decoration: none;
     color: #444;
     background-color: #f9f9f9;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
 
   .link-item a:hover {
@@ -53,11 +76,43 @@
     color: #fff;
     border-color: #007bff;
   }
+  .gif-container {
+    position: relative;
+  }
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .loading-overlay img {
+    width: 50px;
+    height: 50px;
+  }
+
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Notes for CS Students</h1>
+   <h2>Explore our Notes</h2>
+  
+    <p>
+        Dive into a treasure trove of educational materials covering various subjects and data structures.
+        Our notes are designed to simplify complex concepts, making learning more accessible and enjoyable.
+        Whether you're preparing for exams or honing your programming skills, our resources are here to assist you on your academic journey.
+        Visit our Notes section to access a wealth of valuable learning materials.
+    </p>
   <ul class="link-list">
     <li class="link-item"><a href="https://drive.google.com/file/d/1xo98cEyssUAjj8jNzP7hEzBO_a2Rdk47/view?usp=sharing">DSA NOTES</a></li>
     <li class="link-item"><a href="https://drive.google.com/file/d/1xo98cEyssUAjj8jNzP7hEzBO_a2Rdk47/view?usp=sharing">SQL NOTES</a></li>
@@ -65,5 +120,7 @@
     <li class="link-item"><a href="https://drive.google.com/file/d/1xyfTlsIlgo6ncwu8UPss-74fg7AUPevI/view?usp=sharing">DSA PATTERNS</a></li>
   </ul>
 </div>
+
+</script>
 </body>
 </html>
