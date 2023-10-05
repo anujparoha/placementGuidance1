@@ -10,39 +10,45 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
         /* Custom styles */
-        body {
-            background-color: #f0f0f0;
-        }
+
 
         .navbar {
-            background-color: #095b62; /* Blue color */
+            background-color: #095b62; 
+            border-radius: 20px;/* Blue color */
         }
         .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color:black;
     font-weight: bolder;
 }        .navbar-brand {
-            color: #4a3838;
+            color: #fcfcfc;
             font-size: 24px;
+            background-color: #5a5e5e;
+            padding: 12px;
             font-weight: bold;
         }
         
         .navbar-nav .nav-link {
             color: #fff;
             font-size: 18px;
+            border-radius: 7px;
+            margin: 0px 20px;
+
         }
 
         .navbar-nav .nav-link:hover {
-            color: #fff;
-            background-color: #095b62; /* Darker blue color on hover */
+            color: black;
+            background-color: black; /* Darker blue color on hover */
+            font-size: 20px;
         }
 
         /* Additional styles for the dropdown menu */
         .dropdown-menu {
-            background-color: #095b62; /* Blue color */
+            background-color: #095b62; 
+            
         }
 
         .dropdown-menu .dropdown-item {
-            color: #fff;
+            color: #f0f0f0;
             font-size: 16px;
         }
 
@@ -79,13 +85,20 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        .cover{
+          background-color: #0e5a5a;
+          color: white;
+        }
+        
+        
     </style>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Placement Guidance</a>
+<body >
+    <div class="cover" >
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="https://guider.streamlit.app/">Placement Guidance</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -93,10 +106,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link " aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://guider.streamlit.app/">About Placements</a>
+                        <a class="nav-link" href="https://ggits.org/placement/">About Placements</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -104,7 +117,7 @@
                            NOTES 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Data Structures</a></li>
+                            <li><a class="dropdown-item" href="./DataStructure.html">Data Structures</a></li>
                             <li><a class="dropdown-item" href="#">Core Subjects</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -116,17 +129,15 @@
                         <a class="nav-link" href="./contact.html">Contact US</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form id="search" class="d-flex" role="search">
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
-
-    <!-- Technology-related picture -->
     <div class="container my-4">
-        <img src="./kevin-ku-w7ZyuGYNpRQ-unsplash.jpg" alt="Technology" class="img-fluid technology-image">
+        <img src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1820&q=80" alt="Technology" class="img-fluid technology-image">
     </div>
     <div class="container">
         <h2>Welcome to Placement Guidance</h2>
@@ -150,26 +161,13 @@
     Discover where our graduates have landed, the companies they've joined, and the incredible career journeys they've embarked upon. Our alumni are a testament to the quality education and guidance we provide.
   </p>
     </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-        <script> const searchButton = document.getElementById('searchButton');
-            const searchInput = document.getElementById('searchInput');
-            
-            searchButton.addEventListener('click', function () {
-                const query = searchInput.value.toLowerCase();
-                const paragraphs = document.querySelectorAll('.container p');
-                
-                paragraphs.forEach(paragraph => {
-                    const text = paragraph.textContent.toLowerCase();
-                    if (text.includes(query)) {
-                        paragraph.classList.add('search-highlight');
-                    } else {
-                        paragraph.classList.remove('search-highlight');
-                    }
-                });
-            });</script>
-        
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    
+    </script>
+
 </body>
 
 </html>
