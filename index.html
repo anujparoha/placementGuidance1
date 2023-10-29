@@ -1,172 +1,283 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Placement Guidance</title>
-    <link rel="icon" type="image/x-icon" href="./logo.jpg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <style>
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
 
-        /* Image style */
-        .technology-image {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
 
-        /* Text style */
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .cover {
-            background-color: #0e5a5a;
-            color: white;
-        }
-
-        /* Reset some default styles */
-        body, ul, li, a {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-        }
-
-        /* Basic styling for the navigation bar */
-        nav {
-            background-color: #343232;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 20px;
-            position: sticky;
-            top:4px
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: #f8f7f7;
-            margin: 0px 20px;
-            text-decoration: none;
-            font-size: 22px;
-        }
-
-        #nav-list {
-            display: flex;
-        }
-
-        .nav-link {
-            margin: 0 16px;
-           color: white;
-            text-decoration: none;
-            font-size: 20px;
-            padding: 3px;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle::after {
-            content: ' ▼';
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            display: none;
-            background-color: #9b9999;
-            border: 1px solid #ccc;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-item {
-            display: block;
-            padding: 5px 10px;
-            color: #f3eded;
-            background-color: #3b4242;
-            text-decoration: none;
-        }
-
-        .dropdown-divider {
-            border-top: 1px solid #ccc;
-        }
-
-        /* Adjust the position of NOTES link */
-       .navbar-brand:hover,.nav-link:hover{
-        border: 2px solid white;
-        padding: 5px;
-        color: #28d0d0;
-       }
-    </style>
 </head>
+<style>
+    body {
+        background-color:#0e5a5a;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: "Open Sans", sans-serif;
+        color: #333333;
+    }
 
+.box-form {
+  margin: 0 auto;
+  width: 50%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 6px #cdcdd285;
+  animation: fadeInUp 1s both;
+}
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    animation: fadeInUp 1s both;
+  }
+  @keyframes fadeInUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+.box-form div {
+  height: auto;
+}
+.box-form .left {
+  color: #FFFFFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background: #575860ad;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box-form .left .overlay h1 {
+  font-size: 4vmax;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.box-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+.box-form .left .overlay span a {
+  background: #3d3f43;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #e7ecef57;
+}
+.box-form .left .overlay span a:last-child {
+  background: #0e5a5a;
+  margin-left: 30px;
+}
+.box-form .right {
+  padding: 40px;
+  overflow: hidden;
+}
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+.box-form .right h5 {
+  font-size: 3vmax;
+  line-height: 0;
+}
+.box-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+.box-form .right .inputs {
+  overflow: hidden;
+}
+.box-form .right input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-form .right .remember-me--forget-password input {
+  margin: 0;
+  margin-right: 7px;
+  width: auto;
+}
+.box-form .right button {
+  color: #fff;
+  font-size: 16px;
+  background-color: #0e5a5a;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow:white;
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+label::before {
+  content: ' \f00c';
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  border: 3px solid #70F570;
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: ' \f00c';
+  color: #fff;
+  cursor: pointer;
+  background: #70F570;
+}
+
+label:hover::before .text-checkbox {
+  background: #08b508;
+}
+
+label span.text-checkbox {
+  display: inline-block;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+input[type="submit"]{
+  background-color: #0e5a5a;
+  border-radius: 20px;
+  color: white;
+  width: 20%;
+}
+
+label input[type="checkbox"] {
+  display: none;
+}
+</style>
 <body>
-    <div class="cover">
-        <nav>
-            <a class="navbar-brand" href="https://guider.streamlit.app/">Placement Guidance</a>
-            <ul id="nav-list">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="https://ggits.org/placement/" class="nav-link">About Placements</a></li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">NOTES</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./DataStructure.html" class="dropdown-item">Data Structures</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li><a href="./notes.html" class="dropdown-item">Core Subjects</a></li>
-                    </ul>
-                </li>
-                <li><a href="./contact.html" class="nav-link">Contact US</a></li>
-                <li><a href="login.html" class="nav-link">Login</a></li>
-            </ul>
-        </nav>
-        <div class="container my-4">
-            <img
-                src="https://plus.unsplash.com/premium_photo-1681666713641-8d722b681edc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1820&q=80"
-                alt="Technology" class="img-fluid technology-image">
-        </div>
-        <div class="container">
-            <h2>Welcome to Placement Guidance</h2>
-            <p>
-                Explore a wealth of educational resources designed to help you excel academically and shape a successful career.
-                Our platform is dedicated to providing comprehensive notes on core subjects and data structures, giving you the tools to thrive in both academics and the professional world.
-            </p>
-            <h3>Notes and Study Materials</h3>
-            <p>
-                Dive into our collection of meticulously crafted notes, covering a wide range of subjects and data structures.
-                Whether you're looking to ace your exams or master programming concepts, our resources are tailored to support your learning journey.
-            </p>
-            <h3>Contact Us</h3>
-            <p>
-                Have questions or suggestions? Our contact form is your gateway to reaching out. Feel free to connect with us,
-                and our team will be delighted to assist you. Your feedback matters, and we're here to help you every step of the way.
-            </p>
-            <h3>About Placements</h3>
-            <p>
-                At Placement Guidance, we are proud of our College students' achievements and success stories. Our graduates have been placed in prestigious companies across various industries, carving their paths to success.
-                Discover where our graduates have landed, the companies they've joined, and the incredible career journeys they've embarked upon. Our alumni are a testament to the quality education and guidance we provide.
-            </p>
-        </div>
-    </div>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Placement Guidance </h1>
+		<span>
+			<p>login with social media</p>
+			<a href="#"><i class="fa fa-facebook" aria-hidden="true">acebook</i></a>
+			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+		</span>
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <a href="./signup.html"> <button style="background-color: rgb(19, 135, 76)">Register</button></a> it takes less than a minute</p>
+		<div class="inputs">
+			<input type="text" id="email" placeholder="email id">
+			<br>
+			<input type="password" id="password" placeholder="password">
+		</div>
+			
+			<br><br>
+			
+		<div class="remember-me--forget-password">
+				<!-- Angular -->
+	<label>
+		<input type="checkbox" name="item" checked/>
+		<span class="text-checkbox">Remember me</span>
+	</label>
+			<p>forget password?</p>
+		</div>
+			
+			<br>
+			<input type="submit" id="login" value="Login">
+	</div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+  
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3NaOra7tw98lCe0NTEzawSaPQgWFGqyg",
+      authDomain: "login-page-db675.firebaseapp.com",
+      databaseURL: "https://login-page-db675-default-rtdb.firebaseio.com",
+      projectId: "login-page-db675",
+      storageBucket: "login-page-db675.appspot.com",
+      messagingSenderId: "1052938156579",
+      appId: "1:1052938156579:web:d03cd34049ed6e46454f96"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database=getDatabase(app);
+    const auth = getAuth();
+
+
+  login.addEventListener('click', (e) => {
+  console.log('Login button clicked'); // Check if this message appears in the console
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      // alert('Welcome ' + user.email);
+      console.log('Redirecting to index.html'); // Check if this message appears in the console
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+});
+
+
+  </script>
+</div>
 </body>
-
 </html>
