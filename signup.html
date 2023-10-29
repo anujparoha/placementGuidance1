@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SignUp Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
+
+</head>
+<style>
+    body {
+        background-color:#0e5a5a;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: "Open Sans", sans-serif;
+        color: #333333;
+    }
+
+.box-form {
+  margin: 0 auto;
+  width: 50%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 6px #cdcdd285;
+  animation: fadeInUp 1s both;
+}
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    animation: fadeInUp 1s both;
+  }
+  @keyframes fadeInUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+.box-form div {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+
+
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+
+
+input[type="submit"]{
+  background-color: #0e5a5a;
+  border-radius: 20px;
+  color: white;
+  margin: 25px auto;
+  width: 70%;
+}
+.left{
+    margin: 15px auto;
+    font-size: 25px;
+}
+.left input{
+    font-size: 20px;
+}
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+	
+		<h5>SignUp</h5>
+        <input type="text" id="username" placeholder="username">
+             <br>
+			<input type="text" id="email" placeholder="email id">
+			<br>
+			<input type="password" id="password" placeholder="password">
+			
+			<input type="submit" id="signUp" value="submit">
+    </div>
+	</div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"
+
+  
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3NaOra7tw98lCe0NTEzawSaPQgWFGqyg",
+      authDomain: "login-page-db675.firebaseapp.com",
+      databaseURL: "https://login-page-db675-default-rtdb.firebaseio.com",
+      projectId: "login-page-db675",
+      storageBucket: "login-page-db675.appspot.com",
+      messagingSenderId: "1052938156579",
+      appId: "1:1052938156579:web:d03cd34049ed6e46454f96"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database=getDatabase(app);
+    const auth = getAuth();
+  
+    signUp.addEventListener('click',(e)=>{
+        var username=document.getElementById('username').value;
+        var email=document.getElementById('email').value;
+        var password=document.getElementById('password').value;
+        createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    set(ref(database, 'users/'+user.uid),{
+        username: username,
+        email : email,
+        password,password
+
+    })
+     alert('user created');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    alert(errorMessage)
+  });
+    })
+
+  </script>
+</div>
+</body>
+</html>
