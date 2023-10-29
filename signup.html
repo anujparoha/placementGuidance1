@@ -139,6 +139,7 @@ input[type="submit"]{
 
     })
      alert('user created');
+     window.location.href = "index.html";
     // ...
   })
   .catch((error) => {
@@ -148,6 +149,14 @@ input[type="submit"]{
     alert(errorMessage)
   });
     })
+
+    document.getElementById('password').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default form submission
+      signUp.click(); // Trigger the login button click event
+    }
+  });
+
 
   </script>
 </div>

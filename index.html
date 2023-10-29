@@ -213,7 +213,7 @@ label input[type="checkbox"] {
 		<div class="inputs">
 			<input type="text" id="email" placeholder="email id">
 			<br>
-			<input type="password" id="password" placeholder="password">
+            <input type="password" id="password" placeholder="password" >
 		</div>
 			
 			<br><br>
@@ -250,6 +250,13 @@ label input[type="checkbox"] {
       messagingSenderId: "1052938156579",
       appId: "1:1052938156579:web:d03cd34049ed6e46454f96"
     };
+    document.getElementById('password').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default form submission
+      login.click(); // Trigger the login button click event
+    }
+  });
+
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -265,9 +272,9 @@ label input[type="checkbox"] {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      // alert('Welcome ' + user.email);
+      
       console.log('Redirecting to index.html'); // Check if this message appears in the console
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     })
     .catch((error) => {
       const errorCode = error.code;
